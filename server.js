@@ -16,6 +16,14 @@ app.get('/api/stations/all', (req, res) => {
         .then(stations => res.json(stations))
 })
 
+app.get('/api/stations/:id', (req, res) => {
+    const sql = `SELECT * FROM stations  WHERE id = $1;`
+    db
+        .query(sql, [req.params.id])
+        .then(res => res.rows)
+        .then(station => res.json(station))
+})
+
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`)
 })
