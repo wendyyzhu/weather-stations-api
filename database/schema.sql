@@ -9,3 +9,11 @@ CREATE TABLE stations (
     latitude DOUBLE PRECISION NOT NULL,
     longitude DOUBLE PRECISION NOT NULL
 );
+
+CREATE TABLE variables (
+    var_id INTEGER NOT NULL,
+    id INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    unit TEXT NOT NULL,
+    long_name TEXT NOT NULL
+);
