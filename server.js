@@ -32,6 +32,14 @@ app.get('/api/variables/all', (req, res) => {
         .then(variables => res.json(variables))
 })
 
+app.get('/api/variables/:id', (req, res) => {
+    const sql = `SELECT * FROM variables WHERE id = $1 ORDER BY var_id`
+    db
+        .query(sql, [req.params.id])
+        .then(res => res.rows)
+        .then(variables => res.json(variables))
+})
+
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`)
 })
